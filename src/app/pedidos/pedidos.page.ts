@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 interface Pedido {
   idPedido: number;
@@ -46,7 +47,7 @@ export class PedidosPage {
 
   private baseUrl = 'https://backend-app-fa5c.onrender.com/api';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.init();
   }
 
@@ -183,7 +184,7 @@ export class PedidosPage {
 
   async verPedido(p: Pedido): Promise<void> {
     localStorage.setItem('verPedido', JSON.stringify(p.idPedido));
-    location.href = '/tabs/detalle-pedido';
+    await this.router.navigate(['/tabs', 'detalle-pedido']);
   }
 
   // -----------------------------
