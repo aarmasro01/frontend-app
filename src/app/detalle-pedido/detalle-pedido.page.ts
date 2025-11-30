@@ -618,32 +618,23 @@ export class DetallePedidoPage implements OnInit, OnDestroy {
   // Modificado: Solo verifica si existe la asignación para pre-seleccionar el repartidor.
 
   private async verificarAsignacionExistente(): Promise<void> {
+    if (!this.idPedido()) return;
+    
+    const asignacion = await this.obtenerAsignacionPedido(this.idPedido()!);
+    const asignacionActiva = asignacion?.[0]; 
 
-    if (!this.idPedido()) return;
-
-   
-
-    const asignacion = await this.obtenerAsignacionPedido(this.idPedido()!);
-
-    const asignacionActiva = asignacion?.[0];
-
-
-
-    if (asignacionActiva) {
-
-      this.existeAsignacion.set(true);
-
-      const idRep = asignacionActiva.idRepartidor;
-
-      if (idRep) this.idRepartidorSeleccionado = idRep;
-
-    } else {
-
-      this.existeAsignacion.set(false);
-
-    }
-
-  }
+    if (asignacionActiva) {
+      this.existeAsignacion.set(true);
+      const idRep = asignacionActiva.idRepartidor;
+      if (idRep) this.idRepartidorSeleccionado = idRep;
+    } else {
+      this.existeAsignacion.set(false);
+      this.idRepartidorSeleccionado = ''; // <-- FIX: Asegura que el valor sea string vacío si no hay asignación
+    }
+    
+    // 🛑 FIX: Forzar la detección de cambios para que el [value] en el ion-select se actualice
+    this.cdr.detectChanges(); 
+  }
 
 
 
