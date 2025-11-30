@@ -172,9 +172,8 @@
 
       <ion-select interface="popover" placeholder="-- Escoge Repartidor --"
 
-      [(ngModel)]="idRepartidorSeleccionado"
-
-      (ionChange)="onChangeRepartidor()"> -- Escoge Repartidor --
+      [value]="idRepartidorSeleccionado" 
+      (ionChange)="idRepartidorSeleccionado = $event.detail.value; onChangeRepartidor()"> -- Escoge Repartidor --
 
       <ion-select-option *ngFor="let r of repartidores()" [value]="r.idRepartidor"> {{ r.nombreCompleto }}
 

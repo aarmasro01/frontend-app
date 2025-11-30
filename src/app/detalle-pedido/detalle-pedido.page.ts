@@ -1,4 +1,4 @@
-import { Component, computed, signal, OnDestroy, OnInit } from '@angular/core';
+import { Component, computed, signal, OnDestroy, OnInit, ChangeDetectorRef} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 
@@ -162,7 +162,7 @@ export class DetallePedidoPage implements OnInit, OnDestroy {
 
 
 
-  constructor(private http: HttpClient, private toast: ToastController) {
+  constructor(private http: HttpClient, private toast: ToastController, private cdr: ChangeDetectorRef) {
 
    
 
@@ -435,6 +435,7 @@ export class DetallePedidoPage implements OnInit, OnDestroy {
     } finally {
 
       this.cargando.set(false);
+      this.cdr.detectChanges();
 
     }
 
