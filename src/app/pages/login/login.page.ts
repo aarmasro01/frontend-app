@@ -24,6 +24,7 @@ export class LoginPage {
 
   async login() {
     try {
+      // 1. Realiza la solicitud fetch
       const response = await fetch('https://backend-app-fa5c.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -36,32 +37,24 @@ export class LoginPage {
       const data = await response.json();
 
       if (response.ok) {
+        // Almacenamiento local de datos
         localStorage.setItem('token', data.token);
         localStorage.setItem('usuario', JSON.stringify(data.usuario));
         localStorage.setItem('carrito', JSON.stringify([]));
         localStorage.setItem('rolUsuario', data.usuario.idRolUsuario);
 
-        this.zone.run(async () => {
-            this.cdr.detectChanges(); 
+        // Ejecuta la navegación MÁS SIMPLE y DIRECTA
+        this.zone.run(() => {
+            this.cdr.detectChanges(); // Asegura la detección de cambios
             
-            const alert = await this.alertCtrl.create({
-              header: 'Éxito',
-              message: data.message || 'Inicio de sesión exitoso',
-              buttons: ['OK']
-            });
-            await alert.present();
-
-            await alert.onDidDismiss(); 
-
-            // FIX DE ÚLTIMO RECURSO: Retraso mínimo para asegurar que la navegación no se bloquee.
-            setTimeout(() => {
-              this.router.navigateByUrl('/tabs', { replaceUrl: true });
-            }, 1);
+            // 🛑 NAVEGACIÓN DIRECTA: Si el login es exitoso, navegamos inmediatamente.
+            this.router.navigate(['/tabs'], { replaceUrl: true });
         });
 
       } else {
+        // Lógica de error de credenciales (MANTENEMOS la alerta)
         this.zone.run(async () => {
-            this.cdr.detectChanges();
+            this.cdr.detectChanges(); 
             const alert = await this.alertCtrl.create({
               header: 'Error',
               message: data.message || 'Credenciales inválidas',
@@ -71,6 +64,7 @@ export class LoginPage {
         });
       }
     } catch (error) {
+      // Lógica de error de conexión
       this.zone.run(async () => {
           this.cdr.detectChanges();
           const alert = await this.alertCtrl.create({
