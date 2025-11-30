@@ -1,136 +1,271 @@
 <header class="header">
+
     <ion-toolbar color="naranja">
+
       <ion-buttons slot="start">
+
         <ion-back-button defaultHref="/tabs/pedidos"></ion-back-button>
+
       </ion-buttons>
+
       <ion-title>Pedido</ion-title>
+
     </ion-toolbar>
+
   </header>
 
+
+
 <ion-content [fullscreen]="true">
+
   <section class="main-section__detalle-pedido" *ngIf="pedido(); else cargandoTpl">
+
     <h2 id="titleDetalle">PED-{{ pedido()?.idPedido }}</h2>
 
+
+
     <div class="datos-cliente__container-pedido">
+
       <h3>Datos del cliente:</h3>
+
       <div class="dato-cliente__pedido-container">
+
         <label class="subtitulo-dato">Nombres:</label>
+
         <label>{{ pedido()?.nombreReceptor }}</label>
+
       </div>
+
       <div class="dato-cliente__pedido-container">
+
         <label class="subtitulo-dato">Apellidos:</label>
+
         <label>{{ pedido()?.apellidosReceptor }}</label>
+
       </div>
+
       <div class="dato-cliente__pedido-container">
+
         <label class="subtitulo-dato">Correo:</label>
+
         <label>{{ pedido()?.correoReceptor }}</label>
+
       </div>
+
       <div class="dato-cliente__pedido-container">
+
         <label class="subtitulo-dato">Teléfono:</label>
+
         <label>{{ pedido()?.telefonoReceptor }}</label>
+
       </div>
+
       <div class="dato-cliente__pedido-container">
+
         <label class="subtitulo-dato">Fecha:</label>
+
         <label>{{ fechaLimpia(pedido()?.fecha) }}</label>
+
       </div>
+
       <div class="dato-cliente__pedido-container">
+
         <label class="subtitulo-dato">Hora:</label>
+
         <label>{{ pedido()?.hora }}</label>
+
       </div>
+
       <div class="dato-cliente__pedido-container">
+
         <label class="subtitulo-dato">Dirección:</label>
+
         <label>{{ pedido()?.direccionEntrega }}</label>
+
       </div>
+
     </div>
+
+
 
     <div class="resumen-pedido__container-pedido">
+
       <h3>Resumen del pedido</h3>
+
       <div class="linea-divisora"></div>
+
+
 
       <div class="resumen-carrito__container">
+
         <div class="producto-resumen" *ngFor="let det of detalles()">
+
           <div class="img-nombre__producto-resumen">
+
             <div class="imge-container__producto-resumen">
+
               <img [src]="imagenUrl(productoDe(det))" alt="">
+
             </div>
+
             <label>{{ det.cantidad }} x {{ productoDe(det)?.nombre }}</label>
+
           </div>
+
           <div class="precio__producto-resumen">
+
             <label>S/{{ productoDe(det)?.precio }}</label>
+
           </div>
+
         </div>
+
       </div>
 
+
+
       <div class="linea-divisora"></div>
+
+
 
       <div class="montos__resumen-container">
+
         <div class="monto-resumen">
+
           <label>Sub Total</label>
+
           <label>S/{{ subtotal() }}</label>
+
         </div>
+
         <div class="monto-resumen">
+
           <label>Delivery</label>
+
           <label>S/{{ delivery }}</label>
+
         </div>
+
       </div>
+
+
 
       <div class="linea-divisora"></div>
 
+
+
       <div class="monto-total__resumen-container">
+
         <label>Total</label>
+
         <label>S/{{ total() }}</label>
+
       </div>
+
     </div>
+
+
 
     <div class="asignacion-repartidor__container" *ngIf="rolUsuario === 6 || rolUsuario === 7">
+
       <h3>Asignar Repartidor:</h3>
-      <ion-select interface="popover" placeholder="-- Escoge Repartidor --" 
-      [(ngModel)]="idRepartidorSeleccionado" 
-      (ionChange)="onChangeRepartidor()"> -- Escoge Repartidor -- 
+
+      <ion-select interface="popover" placeholder="-- Escoge Repartidor --"
+
+      [(ngModel)]="idRepartidorSeleccionado"
+
+      (ionChange)="onChangeRepartidor()"> -- Escoge Repartidor --
+
       <ion-select-option *ngFor="let r of repartidores()" [value]="r.idRepartidor"> {{ r.nombreCompleto }}
+
         </ion-select-option>
+
       </ion-select>
+
     </div>
+
+
 
     <div class="estado-pedido__container">
+
       <h3>Estado del pedido</h3>
 
+
+
       <div class="estado__container">
+
         <div class="estado" [class.activo]="clasePasoActivo(0)" (click)="clickPaso(0)"></div>
+
         <div class="linea-conectora"></div>
+
         <div class="estado" [class.activo]="clasePasoActivo(1)" (click)="clickPaso(1)"></div>
+
         <div class="linea-conectora"></div>
+
         <div class="estado" [class.activo]="clasePasoActivo(2)" (click)="clickPaso(2)"></div>
+
         <div class="linea-conectora"></div>
+
         <div class="estado" [class.activo]="clasePasoActivo(3)" (click)="clickPaso(3)"></div>
+
         <div class="linea-conectora"></div>
+
         <div class="estado" [class.activo]="clasePasoActivo(4)" (click)="clickPaso(4)"></div>
+
       </div>
+
+
 
       <div class="etiquetas-estado">
+
         <span>Recibido</span>
+
         <span>Confirmado</span>
+
         <span>Listo</span>
+
         <span>En camino</span>
+
         <span>Entregado</span>
+
       </div>
+
+
 
       <div class="pedido-cancelado__container">
+
         <ion-checkbox
+
       [checked]="esCancelado()"
+
       (ionChange)="onToggleCancelado($event)">
+
     </ion-checkbox>
+
         <label>Cancelado</label>
+
       </div>
+
     </div>
 
+
+
     <div class="api-container" *ngIf="pedido()">
+
     <div id="mapa-tracking" style="height: 250px; width: 100%; border-radius: 10px;"></div>
+
 </div>
+
   </section>
 
+
+
   <ng-template #cargandoTpl>
+
     <ion-spinner class="spinner-center"></ion-spinner>
+
     <ion-text color="danger" *ngIf="error()">{{ error() }}</ion-text>
+
   </ng-template>
+
 </ion-content>
