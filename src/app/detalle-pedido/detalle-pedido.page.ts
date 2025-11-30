@@ -415,7 +415,7 @@ export class DetallePedidoPage implements OnInit, OnDestroy {
 
   imagenUrl(producto: Producto | null): string {
     if (!producto || !producto.imagenProducto) return '';
-    return `assets/${producto.imagenProducto}`;
+    return `${producto.imagenProducto}`;
   }
 
   precioNum(valor: number | string): number {
