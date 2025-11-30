@@ -1,0 +1,57 @@
+<ion-header class="header" translucent="true">
+</ion-header>
+
+<ion-content  class="ion-padding main">
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="assets/logo olla.png" alt="Logo" />
+  </div>
+
+  <!-- Formulario -->
+  <form (ngSubmit)="login()" class="form-login">
+    <p>Inicia sesión para continuar:</p>
+
+    <ion-input
+      [(ngModel)]="email"
+      name="email"
+      type="email"
+      placeholder="Correo electrónico"
+      fill="solid"
+      class="input-field"
+      required>
+    </ion-input>
+
+    <ion-input
+      [(ngModel)]="password"
+      name="password"
+      type="password"
+      placeholder="Contraseña"
+      fill="solid"
+      class="input-field"
+      required>
+    </ion-input>
+
+    <ion-button
+      expand="block"
+      type="submit"
+      id="btn-iniciar__sesion"
+      color="naranja" class="ion-padding">
+      INICIAR SESIÓN
+    </ion-button>
+  </form>
+
+  <!-- Enlaces extra -->
+  <div class="opciones-extra__container">
+    <a routerLink="/reset-passowrd" id="recuperar-contraseña">
+      ¿Olvidaste tu contraseña?
+    </a>
+    <a routerLink="/register" id="crear-cuenta">
+      Crear cuenta
+    </a>
+  </div>
+
+</ion-content>
+
+<ion-footer class="footer">
+</ion-footer>

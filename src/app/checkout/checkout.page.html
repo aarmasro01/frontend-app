@@ -1,0 +1,74 @@
+<ion-content [fullscreen]="true">
+  <header class="header">
+    <ion-toolbar color="naranja">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/menu"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Checkout</ion-title>
+    </ion-toolbar>
+  </header>
+
+  <section class="datos-container">
+    <h2>Datos del cliente:</h2>
+
+    <div class="datos-cliente__container">
+      <ion-item>
+        <ion-label position="floating">Nombres</ion-label>
+        <ion-input [(ngModel)]="cliente.nombres" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellidos</ion-label>
+        <ion-input [(ngModel)]="cliente.apellidos" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">DNI</ion-label>
+        <ion-input [(ngModel)]="cliente.dni" type="text" maxlength="8"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input [(ngModel)]="cliente.correo" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input [(ngModel)]="cliente.telefono" type="text" maxlength="9"></ion-input>
+      </ion-item>
+    </div>
+
+    <h2>Comprobante de pago:</h2>
+<ion-list class="comprobantes-container">
+  <ion-item *ngFor="let comp of comprobantes" lines="none">
+    <ion-label>{{ comp.label }}</ion-label>
+    <ion-checkbox
+      slot="end"
+      [(ngModel)]="comp.checked"
+      (ionChange)="seleccionarComprobante(comp)"
+    ></ion-checkbox>
+  </ion-item>
+</ion-list>
+
+    <h2>Delivery a:</h2>
+    <ion-item class="delivery">
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-input [(ngModel)]="cliente.direccion"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="politica-item">
+  <div class="politica-container">
+    <ion-checkbox [(ngModel)]="cliente.politica"></ion-checkbox>
+    <ion-label>
+      Acepto la <span class="link">Política de Privacidad</span> y los
+      <span class="link">Términos y Condiciones</span>
+    </ion-label>
+  </div>
+</ion-item>
+
+  </section>
+
+  <div class="btn-continuar__container">
+    <ion-button expand="block" (click)="continuar()">Continuar</ion-button>
+  </div>
+</ion-content>

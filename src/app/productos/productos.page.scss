@@ -1,0 +1,229 @@
+ion-content{
+    --background: var(--crema)
+}
+
+.main-section__productos{
+    width: 100%;
+    padding: 15px;
+    padding-top: 80px;
+    padding-bottom: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 20PX;
+    align-items: center;
+}
+.image-principal{
+    width: 100%;
+    max-width: 300px;
+}
+.filtros-container__productos{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.filtros-buscador-pagos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.filtros-buscador-pagos select,.filtros-buscador-pagos input{
+    flex: 1;
+    padding: 7px;
+    border: 1px solid var(--gray);
+    color: var(--dark);
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+.filtros-buscador-pagos button{
+    padding: 7px 20px;
+    color: var(--light);
+    background-color: var(--naranja);
+    border: none;
+    border-radius: 5px;
+}
+.buscador-productos__container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    max-width: 500px;
+    position: relative;
+    align-items: center;
+    margin-top: -30px;
+}
+.buscador-productos__container input{
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.8rem;
+    color: var(--dark);
+}
+.buscador-productos__container span{
+    position: absolute;
+    right: 10px;
+    color: var(--dark);
+}
+.agregar-menu__container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2px;
+    color: #2d3142;
+}
+.agregar-menu__container button{
+    background-color: var(--naranja);
+    color: var(--light);
+    border: none;
+    padding: 6px 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 10px 0px rgb(0 0 0 / 10%);
+}
+.table-container{
+    width: 100%;
+    display: flex;
+    max-height: 500px;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    box-shadow: 0 1px 10px 0px rgb(0 0 0 / 10%);
+}
+table{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+tr{
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(50px,0.5fr) minmax(200px,3fr) minmax(100px,1fr) minmax(100px,1fr) minmax(100px,1fr) minmax(150px,2fr) ;
+}
+th{
+  width: 100%;
+  padding: 6px 15px;
+  font-size: 0.8rem;
+  color: var(--dark);
+  font-weight: lighter;
+  text-align: center;
+  background-color: #ccc;
+}
+td{
+    padding: 15px 10px;
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.name-image__producto{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-wrap: wrap;
+}
+.image-producto__container{
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.name-image__producto img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.name-image__producto label{
+  flex: 1;
+}
+.acciones-productos{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.acciones-productos .accion-button{
+  padding: 10px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.edit-button{
+  background-color: #4c5aff;
+  color: var(--light);
+}
+
+.delete-button{
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+
+
+
+/* Estilo base del switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+}
+
+/* Ocultar el checkbox nativo */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Parte visible del switch */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--success); /* rojo suave */
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+/* El círculo blanco */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  right: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Cuando está activado */
+.switch input:checked + .slider {
+  background-color: #ff6b6b; /* verde */
+}
+
+/* Movimiento del círculo al activar */
+.switch input:checked + .slider::before {
+  transform: translateX(-18px);
+}

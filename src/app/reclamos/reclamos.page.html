@@ -1,0 +1,63 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container-imagen-principal">
+    <img src="assets/logo olla.png" alt="" class="image-principal">
+  </div>
+  <div class="filtros-container__productos">
+    <div class="buscador-productos__container">
+      <input
+        type="text"
+        id="input-productos-buscar"
+        [value]="filtroTexto"
+        (input)="onBuscar($event)"
+        placeholder="Buscar cliente..."
+      />
+      <span class="material-symbols-outlined">search</span>
+    </div>
+
+    <div class="filtros-buscador-pagos">
+      <select id="select-tipo" [value]="filtroTipo" (change)="onFiltroTipo($event)">
+        <option value="">Todos</option>
+        <option value="Reclamo">Reclamo</option>
+        <option value="Queja">Queja</option>
+      </select>
+
+      <input
+        type="date"
+        id="input-fecha-reclamos"
+        [value]="filtroFecha"
+        (input)="onFiltroFecha($event)"
+      />
+
+      <button id="btn-filtrar-productos" (click)="aplicarFiltros()">Filtrar</button>
+    </div>
+  </div>
+
+  <ion-spinner *ngIf="cargando"></ion-spinner>
+  <ion-text color="danger" *ngIf="error">{{ error }}</ion-text>
+
+  <div class="container-reclamos">
+    <div class="tarjeta-reclamo" *ngFor="let r of reclamosFiltrados">
+      <div class="cabecera">
+        <h3>Reclamo #{{ r.idReclamo }}</h3>
+        <span class="fecha">{{ fechaLimpia(r.fechaPedido) }}</span>
+      </div>
+
+      <div class="detalles">
+        <p><strong>Cliente:</strong> {{ r.nombreCompleto }}</p>
+        <p><strong>Correo:</strong> {{ r.correo }}</p>
+        <p><strong>Teléfono:</strong> {{ r.telefono }}</p>
+        <p><strong>Tipo de documento:</strong> {{ r.tipoDocumento }} - {{ r.numDocumento }}</p>
+        <p><strong>Dirección:</strong> {{ r.direccion }}</p>
+        <p><strong>Número de pedido:</strong> PED-{{ r.numPedido }}</p>
+        <p><strong>Monto reclamado:</strong> S/ {{ r.montoReclamo }}</p>
+        <p><strong>Detalles del reclamo:</strong> {{ r.detalles }}</p>
+      </div>
+
+      <div class="acciones-reclamo">
+        <button class="btn-responder" (click)="responder(r)">
+          Responder por correo
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

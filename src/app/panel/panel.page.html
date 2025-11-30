@@ -1,0 +1,46 @@
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container-imagen-principal">
+      <img src="assets/logo olla.png" alt="" class="image-principal">
+    </div>
+
+<div class="dashboard-container">
+  <h2 id="resumen">Resumen</h2>
+
+  <div class="dashboard usuarios">
+    <h3>Usuarios</h3>
+    <label>{{ kpis.usuarios }}</label>
+  </div>
+
+  <div class="dashboard productos">
+    <h3>Productos activos</h3>
+    <label>{{ kpis.productosActivos }}</label>
+  </div>
+
+  <div class="dashboard reclamos">
+    <h3>Reclamos</h3>
+    <label>{{ kpis.reclamos }}</label>
+  </div>
+
+  <div class="dashboard pedidos">
+    <h3>Pedidos del día</h3>
+    <label>{{ kpis.pedidosDelDia }}</label>
+  </div>
+
+  <div class="dashboard ingreso">
+    <h3>Ingreso total</h3>
+    <label>S/{{ kpis.ingresoTotal | number:'1.2-2' }}</label>
+  </div>
+</div>
+
+<div class="grafico">
+  <h2>Cantidad de pedidos</h2>
+  <canvas id="grafico1" style="height: 400px;"></canvas>
+</div>
+
+<div class="grafico">
+  <h2>Índice de productos</h2>
+  <canvas id="grafico3" style="height: 400px;"></canvas>
+</div>
+
+</ion-content>

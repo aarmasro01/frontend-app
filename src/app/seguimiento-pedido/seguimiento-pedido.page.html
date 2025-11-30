@@ -1,0 +1,100 @@
+  <header class="header">
+    <ion-toolbar color="naranja">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/historial"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Sigue tu pedido</ion-title>
+    </ion-toolbar>
+  </header>
+
+<ion-content [fullscreen]="true" class="seguimiento-content ion-padding">
+
+  <label class="numero-pedido">Pedido #{{ pedido?.idPedido }}</label>
+
+<div class="seguimiento-estados">
+  <div class="order-tracking">
+
+  <div class="step">
+    <div class="circle" [ngClass]="{ 'active': estadosActivos.recibido }">1</div>
+    <div class="estado">
+      <p class="title">Pedido recibido</p>
+      <p class="desc">Tu pedido ha sido recibido correctamente.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="circle" [ngClass]="{ 'active': estadosActivos.confirmado }">2</div>
+    <div class="estado">
+      <p class="title">Preparando pedido</p>
+      <p class="desc">El restaurante está preparando tu comida.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="circle" [ngClass]="{ 'active': estadosActivos.listo }">3</div>
+    <div class="estado">
+      <p class="title">Pedido listo</p>
+      <p class="desc">Tu pedido está empacado y listo para el envío.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="circle" [ngClass]="{ 'active': estadosActivos.encamino }">4</div>
+    <div class="estado">
+      <p class="title">En camino</p>
+      <p class="desc">El repartidor está en camino hacia tu ubicación.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="circle" [ngClass]="{ 'active': estadosActivos.entregado }">5</div>
+    <div class="estado">
+      <p class="title">Entregado</p>
+      <p class="desc">Tu pedido ha sido entregado. ¡Buen provecho!</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+  <div class="resumen-pedido__container-pedido">
+      <h3>Resumen del pedido</h3>
+      <div class="linea-divisora"></div>
+
+      <div class="resumen-carrito__container">
+        <div class="producto-resumen" *ngFor="let det of detalles()">
+          <div class="img-nombre__producto-resumen">
+            <div class="imge-container__producto-resumen">
+              <img [src]="imagenUrl(productoDe(det))" alt="">
+            </div>
+            <label>{{ det.cantidad }} x {{ productoDe(det)?.nombre }}</label>
+          </div>
+          <div class="precio__producto-resumen">
+            <label>S/{{ productoDe(det)?.precio }}</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="linea-divisora"></div>
+
+      <div class="montos__resumen-container">
+        <div class="monto-resumen">
+          <label>Sub Total</label>
+          <label>S/{{ subtotal() }}</label>
+        </div>
+        <div class="monto-resumen">
+          <label>Delivery</label>
+          <label>S/{{ delivery }}</label>
+        </div>
+      </div>
+
+      <div class="linea-divisora"></div>
+
+      <div class="monto-total__resumen-container">
+        <label>Total</label>
+        <label>S/{{ total() }}</label>
+      </div>
+    </div>
+
+</ion-content>

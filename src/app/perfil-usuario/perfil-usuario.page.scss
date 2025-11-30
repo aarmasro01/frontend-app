@@ -1,0 +1,121 @@
+/* ====== CONTENEDOR PRINCIPAL ====== */
+ion-content {
+  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* ====== PERFIL ====== */
+.main-section__perfil {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 80px 25px 100px 25px;
+}
+
+/* ====== DATOS ====== */
+.datos__container {
+  background-color: var(--light);
+  width: 100%;
+//   box-shadow: 0 1px 2px 0px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  gap: 15px;
+  border-radius: 10px;
+}
+
+/* ====== IMAGEN ====== */
+.image-perfil__container {
+  width: 120px;
+  height: 120px;
+  margin-top: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0px rgb(0 0 0 / 10%);
+}
+
+.image-perfil__container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ====== NOMBRE ====== */
+.nombre-perfil__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nombre-perfil__container label {
+  max-width: 150px;
+  text-align: center;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+/* ====== INPUTS ====== */
+.data__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--dark);
+}
+
+.data__container label {
+  font-size: 0.8rem;
+}
+
+.data__container input {
+  font-size: 0.85rem;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #dedede;
+  background-color: #f9f9f9;
+}
+
+/* ====== LÍNEA DIVISORA ====== */
+.linea-divisora {
+  width: 100%;
+  margin-top: 10px;
+  height: 1px;
+  background-color: #dedede;
+}
+
+/* ====== BOTONES ====== */
+.buttons-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-foto,
+.btn-pedidos {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 0.85rem;
+  color: var(--light);
+  box-shadow: 0 1px 2px 0px rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
+.btn-foto {
+  background-color: var(--dark);
+}
+
+.btn-pedidos {
+  background-color: var(--naranja);
+}

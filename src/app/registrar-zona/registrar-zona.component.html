@@ -1,0 +1,34 @@
+<div class="background-agregar-zona">
+  <div class="agregar-zona-container">
+    <h2>AGREGAR ZONA</h2>
+
+    <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-agregar-zona">
+      
+      <div class="form-input">
+        <label>Distrito</label>
+        <input
+          type="text"
+          [(ngModel)]="distrito"
+          name="distrito"
+          required
+          placeholder="Ej. Miraflores"
+        />
+      </div>
+
+      <div class="form-input">
+        <label>Costo envío</label>
+        <input
+          type="number"
+          step="0.01"
+          [(ngModel)]="costoEnvio"
+          name="costoEnvio"
+          required
+          placeholder="S/ 15.00"
+        />
+      </div>
+
+      <button type="submit" [disabled]="form.invalid">Agregar</button>
+      <button type="button" (click)="cerrar()">Cancelar</button>
+    </form>
+  </div>
+</div>

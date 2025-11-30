@@ -1,0 +1,91 @@
+<ion-content class="background-registrar-usuario ion-padding">
+  <div class="register-container">
+    <h2>REGISTRAR USUARIO</h2>
+
+    <form class="form-register" (ngSubmit)="registrar()">
+      <div class="form-input">
+        <label for="input-nombre-usuario">Nombre completo</label>
+        <input
+          type="text"
+          id="input-nombre-usuario"
+          placeholder="Ej. Maria Perez"
+          [(ngModel)]="nombre"
+          name="nombre"
+          required
+        />
+      </div>
+
+      <div class="form-input">
+        <label for="input-correo-usuario">Correo electrónico</label>
+        <input
+          type="email"
+          id="input-correo-usuario"
+          placeholder="correo@ejemplo.com"
+          [(ngModel)]="correo"
+          name="correo"
+          required
+        />
+      </div>
+
+      <div class="form-input">
+        <label for="input-telefono-usuario">Teléfono</label>
+        <input
+          type="text"
+          id="input-telefono-usuario"
+          placeholder="EJ. +51 9XXXXXXXX"
+          [(ngModel)]="telefono"
+          name="telefono"
+          required
+        />
+      </div>
+
+      <div class="form-input">
+        <label for="select-rol-usuario">Rol</label>
+        <select
+          id="select-rol-usuario"
+          [(ngModel)]="rol"
+          name="rol"
+          required
+        >
+          <option value="1">Cliente</option>
+          <option value="6">Encargado</option>
+          <option value="7">Empleado</option>
+          <option value="8">Repartidor</option>
+        </select>
+      </div>
+
+      <div class="form-input">
+        <label for="input-contraseña-usuario">Contraseña</label>
+        <input
+          type="password"
+          id="input-contraseña-usuario"
+          placeholder="Min. 8 caracteres"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="form-input">
+        <label for="input-confirmar-usuario">Confirmar contraseña</label>
+        <input
+          type="password"
+          id="input-confirmar-usuario"
+          placeholder="Repite la contraseña"
+          [(ngModel)]="confirmar"
+          name="confirmar"
+          required
+        />
+      </div>
+
+      <div class="form-actions">
+        <button  type="submit" class="btn-crear">
+          Crear usuario
+        </button>
+        <button class="btn-cancelar" (click)="cerrar()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</ion-content>

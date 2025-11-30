@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true">
+  <section class="contenedor-pedidos">
+    <img src="assets/logo olla.png" alt="" class="image-principal" />
+
+    <div class="filtros-container__productos">
+      <div class="buscador-productos__container">
+        <input
+          type="text"
+          id="input-productos-buscar"
+          [value]="filtroTexto"
+          (input)="onBuscar($event)"
+          placeholder="Buscar cliente..."
+        />
+        <span class="material-symbols-outlined">search</span>
+      </div>
+
+      <div class="filtros-buscador-pagos">
+        <select interface="popover" placeholder="Estado" [value]="filtroEstado" (change)="onFiltroEstado($event)">
+          <option value="">Todos</option>
+          <option *ngFor="let e of estados" [value]="e.idEstadoPedido">{{ e.nombreEstadoPedido }}</option>
+        </select>
+        <input type="date"
+          [value]="filtroFecha"
+          (input)="onFiltroFecha($event)"
+          placeholder="Fecha"
+        />
+        <button id="btn-filtrar-productos" (click)="aplicarFiltros()">Filtrar</button>
+      </div>
+    </div>
+
+    <ion-spinner *ngIf="cargando"></ion-spinner>
+    <ion-text color="danger" *ngIf="error">{{ error }}</ion-text>
+
+    <div class="pedidos-grid">
+      <div class="pedido-card" *ngFor="let ped of pedidosFiltrados">
+        <div class="pedido-header">
+          <span class="pedido-id">#PED-{{ ped.idPedido }}</span>
+          <span [class]="claseEstado(ped)">{{ nombreEstadoNormalizado(ped.idEstadoPedido, '') }}</span>
+        </div>
+        <div class="pedido-info">
+          <p><strong>Cliente:</strong> {{ ped.nombreReceptor }} {{ ped.apellidosReceptor }}</p>
+          <p><strong>Fecha:</strong> {{ fechaLimpia(ped.fecha) }}</p>
+          <p><strong>Hora:</strong> {{ ped.hora }}</p>
+          <p><strong>Total:</strong> S/{{ (montoPedido(ped) | async) || 0 }}</p>
+          <p><strong>ID Pago:</strong> {{ ped.idPago }}</p>
+        </div>
+        <div class="pedido-footer">
+          <button class="btn-detalles" (click)="verPedido(ped)">Ver pedido</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-content>

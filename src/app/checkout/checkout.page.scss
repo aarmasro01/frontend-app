@@ -1,0 +1,142 @@
+ion-content {
+  --background: var(--crema);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    z-index: 100;
+    position: fixed;
+    background-color: #E13F12;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+}
+
+
+.datos-container {
+  margin-top: 70px;
+  background-color: var(--light);
+  width: 100%;
+  box-shadow: 0 1px 10px rgba(111, 58, 58, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 120px;
+
+  h2 {
+    color: var(--naranja);
+    font-size: 1.2rem;
+    text-align: left;
+    width: 100%;
+  }
+}
+.datos-cliente__container{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.datos-cliente__container ion-item ion-input{
+    width: 100%;
+    
+}
+
+.comprobantes-container {
+  background-color: #efefef;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+}
+.comprobantes-container ion-item{
+    --background: #efefef;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.btn-continuar__container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--light);
+  box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  z-index: 500;
+}
+.btn-continuar__container ion-button{
+    --background: var(--naranja)
+}
+.link {
+  color: var(--naranja);
+  text-decoration: underline;
+}
+
+ion-label {
+  font-size: 0.9rem;
+}
+
+.politica-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  width: 100%;
+}
+
+.politica-item {
+  --background: var(--light);
+}
+
+/* Alinear correctamente los subtítulos y los ion-item */
+.datos-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Corrige el margen interno de ion-item */
+ion-item {
+  --inner-padding-start: 0;
+  --padding-start: 0;
+  margin-left: 0;
+}
+
+/* Asegura que los labels y los inputs estén alineados al texto */
+ion-label, ion-input {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Opcional: si los títulos <h2> siguen más metidos que los ion-item */
+.datos-container h2 {
+  padding-left: 0px; /* pequeño ajuste visual */
+}
+
+ion-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+ion-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+.delivery{
+  margin-top: -30px;
+}
+ion-back-button{
+  margin-left: 5px;
+  transform: scale(0.8);
+}

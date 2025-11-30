@@ -1,0 +1,81 @@
+.background-actualizar-usuario{
+    z-index: 500;
+    width: 100%;
+    padding: 20px;
+    --background: #6666;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    opacity: 1;
+    transition-duration: 0.5s;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+}
+
+.register-container,.actualizar-container{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(45,49,66,0.08);
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+.register-container h2, .actualizar-container h2{
+    color: var(--naranja);
+    padding-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.form-register,.form-actualizar{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-top: -30px;
+    gap: 10px;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+.form-input label{
+    color: var(--dark);
+    font-size: 0.75rem;
+}
+.form-input input, .form-input select{
+    padding: 7px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+.form-input option{
+    color: var(--dark);
+}
+
+.form-register button, .form-actualizar button{
+    width: 100%;
+    margin-top: 15px;
+    padding: 7px;
+    background-color: var(--naranja);
+    color: var(--light);
+    border: none;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 30px rgba(225,63,18,0.2);
+}
+.btn-cancelar{
+    background-color: #6666
+}
+

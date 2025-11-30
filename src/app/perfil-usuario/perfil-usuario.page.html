@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <section class="main-section__perfil">
+    <div class="datos__container">
+      <!-- Imagen del perfil -->
+      <div class="image-perfil__container">
+        <img [src]="'../../../assets/'+usuario.imagenPerfil" alt="Foto de perfil" />
+      </div>
+
+      <!-- Nombre -->
+      <div class="nombre-perfil__container">
+        <label>{{ usuario.nombreCompleto | uppercase }}</label>
+      </div>
+
+      <!-- Correo -->
+      <div class="data__container">
+        <label>Correo Electrónico:</label>
+        <input type="text" [(ngModel)]="usuario.correo" disabled />
+      </div>
+
+      <!-- Teléfono -->
+      <div class="data__container">
+        <label>Teléfono:</label>
+        <input type="text" [(ngModel)]="usuario.telefono" disabled />
+      </div>
+
+      <!-- Línea divisora -->
+      <div class="linea-divisora"></div>
+
+      <!-- Botones -->
+      <div class="buttons-container">
+        <button class="btn-foto">Cambiar foto</button>
+        <button class="btn-pedidos" (click)="irAMisPedidos()">Mi historial de pedidos</button>
+      </div>
+    </div>
+  </section>
+</ion-content>

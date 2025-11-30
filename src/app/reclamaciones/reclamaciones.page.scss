@@ -1,0 +1,96 @@
+.main-section__reclamo {
+  width: 100%;
+  background-color: var(--light);
+  padding: 80px 25px 100px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: var(--naranja);
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.descripcion {
+  text-align: center;
+  color: var(--dark);
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+  max-width: 600px;
+}
+
+.form-reclamo {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.grupo-input label {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+
+.grupo-input input,
+.grupo-input select,
+.grupo-input textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus,
+.grupo-input textarea:focus {
+  border-color: var(--naranja);
+  outline: none;
+}
+
+.grupo-doble {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.grupo-doble .grupo-input {
+  width: 100%;
+}
+.grupo-doble .grupo-input input, .grupo-doble .grupo-input select{
+  width: 100%;
+}
+
+.boton-enviar {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.boton-enviar button {
+  background-color: var(--naranja);
+  color: var(--light);
+  font-size: 1rem;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.boton-enviar button:hover {
+  background-color: #d13810;
+}

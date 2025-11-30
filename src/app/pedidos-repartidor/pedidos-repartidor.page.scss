@@ -1,0 +1,160 @@
+:root {
+  --crema: #FFF8F0;
+  --naranja: #E13F12;
+  --naranja-claro: #ffb74d;
+  --dark: #2d3142;
+  --light: #ffffff;
+  --gray: #bfc0c0;
+  --gris: #f5f5f5;
+  --blanco: #fff;
+  --texto: #333;
+  --verde: #43a047;
+  --rojo: #e53935;
+  --azul: #1e88e5;
+}
+ion-content{
+    --background: var(--crema)
+}
+.contenedor-pedidos {
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  padding: 20px 15px;
+  gap: 20px;
+  padding-bottom: 80px;
+}
+
+.filtros-container__productos{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filtros-buscador-pagos{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.filtros-buscador-pagos ion-select,
+.filtros-buscador-pagos ion-datetime {
+  flex: 1;
+}
+
+.filtros-buscador-pagos select,.filtros-buscador-pagos input{
+  flex: 1;
+  padding: 7px;
+  border: 1px solid var(--gray);
+  color: var(--dark);
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+.filtros-buscador-pagos button{
+  background: var(--naranja);
+  border-radius: 5px;
+  padding: 7px 10px;
+  color: var(--light);
+}
+
+.buscador-productos__container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  max-width: 500px;
+  position: relative;
+  align-items: center;
+  margin-top: -30px;
+}
+
+.buscador-productos__container input{
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 50px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.8rem;
+  color: var(--dark);
+}
+
+.buscador-productos__container span{
+  position: absolute;
+  right: 10px;
+  color: var(--dark);
+}
+
+.image-principal{
+  width: 100%;
+  max-width: 300px;
+}
+
+.pedidos-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.pedido-card {
+  background-color: var(--light);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.pedido-card:hover { transform: translateY(-5px); }
+
+.pedido-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.pedido-id { font-weight: 600; color: var(--texto); }
+
+.estado {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.estado-recibido { background-color: #43a047; }
+.estado-confirmado { background-color: var(--naranja); }
+.estado-listo { background-color: #1e88e5; }
+.estado-en-camino { background-color: #6c5ce7; }
+.estado-entregado { background-color: #ffb74d; }
+.estado-cancelado { background-color: #e53935; }
+
+.pedido-info p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: var(--dark);
+}
+
+.pedido-footer { text-align: right; margin-top: 10px; }
+
+.btn-detalles {
+  background-color: var(--naranja);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btn-detalles:hover { background-color: var(--naranja-claro); }

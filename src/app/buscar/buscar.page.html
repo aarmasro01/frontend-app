@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true">
+  <section class="main-section__productos-relacionados">
+    <h3>Productos relacionados</h3>
+
+    <div class="productos-relacionados__container">
+      <div *ngFor="let producto of productos" class="producto">
+        <div class="image-producto__container">
+          <img [src]="producto.imagenProductoUrl" [alt]="producto.nombre" />
+        </div>
+
+        <div class="info-producto__container">
+          <label class="nombre-producto">{{ producto.nombre }}</label>
+          <label class="precio-producto">S/{{ producto.precio }}</label>
+        </div>
+
+        <button class="button-producto" (click)="agregarAlCarrito(producto)">
+          <ion-icon name="cart-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </section>
+</ion-content>

@@ -1,0 +1,204 @@
+:root {
+  --naranja: #E13F12;
+  --light: #ffffff;
+  --gray: #bfc0c0;
+  --dark: #2d3142;
+}
+
+ion-content{
+    --background: var(--crema);
+}
+ion-toolbar {
+  --background: var(--naranja);
+  --color: #fff;
+}
+
+.main-section__detalle-pedido{
+  width: 100%;
+  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+h2 {
+  color: var(--naranja);
+  width: 100%;
+  font-size: 1.4rem;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.1);
+}
+
+.datos-cliente__container-pedido,
+.resumen-pedido__container-pedido,
+.asignacion-repartidor__container,
+.estado-pedido__container {
+  background-color: var(--light);
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 1px 10px 0px rgb(0 0 0 / 10%);
+}
+
+.datos-cliente__container-pedido h3,
+.asignacion-repartidor__container h3,
+.estado-pedido__container h3 {
+  color: var(--naranja);
+  font-size: 0.9rem;
+}
+
+.dato-cliente__pedido-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.dato-cliente__pedido-container label{
+  font-size: 0.9rem;
+  color: var(--dark);
+}
+
+.subtitulo-dato{
+  font-weight: bold;
+}
+
+.resumen-pedido__container-pedido h3{ color: var(--dark); font-size: 0.9rem; }
+
+.linea-divisora{ width: 100%; height: 1px; background-color: #dedede; }
+
+.resumen-carrito__container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.producto-resumen{
+  width: 100%;
+  height: 80px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+}
+.img-nombre__producto-resumen{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.imge-container__producto-resumen{
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.imge-container__producto-resumen img{
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+.img-nombre__producto-resumen label{
+  font-size: 0.9rem; color: var(--dark);
+}
+
+.precio__producto-resumen{
+  display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;
+}
+.precio__producto-resumen label{
+  width: 100%; display: flex; justify-content: flex-end; font-size: 0.9rem; color: var(--dark);
+}
+
+.montos__resumen-container{ display: flex; flex-direction: column; gap: 5px; width: 100%; }
+.monto-resumen{ display: flex; justify-content: space-between; color: var(--dark); }
+.monto-resumen label{ font-size: 0.9rem; }
+
+.monto-total__resumen-container{
+  width: 100%; display: flex; justify-content: space-between; color: var(--dark);
+}
+.monto-total__resumen-container label{ font-size: 0.9rem; }
+
+.asignacion-repartidor__container ion-select{
+    margin-top: 10px;
+    width: 100%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    color: var(--dark);
+}
+
+.estado__container{
+  margin-top: 10px;
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+}
+.estado{
+  width: 30px; height: 30px; background-color: var(--gray); border-radius: 50%;
+}
+.estado.activo{
+  background-color: var(--naranja);
+}
+.linea-conectora{ background-color: var(--gray); height: 1px; flex: 1; margin: 0 5px; }
+
+.etiquetas-estado {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  font-size: 0.75rem;
+  color: var(--dark);
+  margin-top: 6px;
+}
+.etiquetas-estado span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.api-container{
+  width: 100%; height: 250px; border: 2px solid var(--gray); margin-top: 10px; border-radius: 10px; overflow: hidden;
+}
+.api-container img{ width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+.pedido-cancelado__container{
+  display: flex; align-items: center; gap: 7px; margin-top: 10px;
+}
+
+.spinner-center {
+  display: block;
+  margin: 40px auto;
+}
+.header {
+    width: 100%;
+    height: 50px;
+    z-index: 100;
+    position: fixed;
+    background-color: #E13F12;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+}
+
+ion-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+ion-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+
+ion-back-button{
+  margin-left: 5px;
+  transform: scale(0.8);
+}

@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <section class="main-section__carrito">
+    <div class="items-container">
+      <div class="item__container" *ngFor="let item of carrito; let i = index">
+        <div class="image-item__carrito">
+          <img [src]="item.imagenProducto" [alt]="item.nombre">
+        </div>
+        <div class="info-item__container">
+          <label class="name-item">{{ item.nombre }}</label>
+          <label class="precio-item">S/{{ item.precio }}</label>
+
+          <div class="cantidad__container">
+            <button class="menos" (click)="disminuirCantidad(item,i)">
+              <ion-icon name="remove-outline"></ion-icon>
+            </button>
+            <p class="cantidad-item">{{ item.cantidad || 1 }}</p>
+            <button class="mas" (click)="aumentarCantidad(item,i)">
+              <ion-icon name="add-outline"></ion-icon>
+            </button>
+          </div>
+
+          <button class="btn-eliminar" (click)="eliminarItem(i)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="resumen-compra__container" *ngIf="carrito.length > 0">
+      <h3>Resumen de tu compra</h3>
+      <div class="linea-divisora"></div>
+      <div class="montos-container">
+        <div class="sub-total__container">
+          <label class="label-subtotal">Subtotal</label>
+          <label class="precio-subtotal">S/{{ subtotal }}</label>
+        </div>
+        <div class="delivery__container">
+          <label class="label-delivery">Delivery</label>
+          <label class="precio-delivery">{{delivery}}</label>
+        </div>
+      </div>
+      <div class="linea-divisora"></div>
+      <div class="monto-total__container">
+        <label class="label-total">Total</label>
+        <label class="precio-total">S/{{ total }}</label>
+      </div>
+    </div>
+  </section>
+</ion-content>

@@ -1,0 +1,108 @@
+:root {
+  --primary: #007aff;
+  --light: #ffffff;
+  --naranja: #E13F12;
+  --crema: #FFF8F0;
+}
+
+.toolbar-primary {
+  --background: var(--naranja);
+  --color: var(--light);
+}
+ion-content{
+    --background: #FFF8F0;
+}
+.main__section-estadistica {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  padding: 20px 15px;
+  gap: 20px;
+  padding-bottom: 80px;
+}
+
+.container-imagen-principal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+.image-principal{
+    width: 100%;
+    max-width: 300px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #007aff;
+}
+
+#resumen {
+  margin-bottom: 10px;
+}
+
+.dashboard-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px 20px;
+  border-radius: 15px;
+//   margin-top: 20px;
+}
+
+.dashboard {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding-top: 0;
+
+}
+
+.dashboard h3 {
+  color: #fff;
+}
+
+.usuarios { background-color: #007aff; }
+.productos { background-color: #34c759; }
+.reclamos { background-color: #ff2d55; }
+.pedidos { background-color: #ff9500; }
+.ingreso { background-color: #5856d6; }
+
+.grafico {
+  width: 100%;
+  height: 360px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform .3s ease, box-shadow .3s ease;
+  margin-top: 20px;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+.grafico canvas { width: 100% !important; height: 100% !important; /* Chart.js respeta maintainAspectRatio:false */ display: block; }
+
+.grafico:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.grafico h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #007aff;
+}

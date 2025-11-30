@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+  <section class="main-section__menu">
+    <h3>Entradas</h3>
+    <div class="menu__container">
+      <div class="plato" *ngFor="let pro of obtenerPorCategoria(1)">
+        <div class="image-plato__container">
+          <img [src]="pro.imagenProducto" [alt]="pro.nombre">
+        </div>
+        <div class="info-plato__container">
+          <label class="nombre-plato">{{ pro.nombre }}</label>
+          <label class="precio-plato">S/{{ pro.precio }}</label>
+        </div>
+        <button class="button-plato" (click)="agregarAlCarrito(pro)">
+          <ion-icon name="cart-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <h3 class="title-segundos">Segundos</h3>
+    <div class="menu-segundo__container">
+      <div class="plato" *ngFor="let pro of obtenerPorCategoria(2)">
+        <div class="image-plato__container">
+          <img [src]="pro.imagenProducto" [alt]="pro.nombre">
+        </div>
+        <div class="info-plato__container">
+          <label class="nombre-plato">{{ pro.nombre }}</label>
+          <label class="precio-plato">S/{{ pro.precio }}</label>
+        </div>
+        <button class="button-plato" (click)="agregarAlCarrito(pro)">
+          <ion-icon name="cart-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <h3 class="title-bebidas">Bebidas</h3>
+    <div class="menu-bebidas__container">
+      <div class="plato" *ngFor="let pro of obtenerPorCategoria(3)">
+        <div class="image-plato__container">
+          <img [src]="pro.imagenProducto" [alt]="pro.nombre">
+        </div>
+        <div class="info-plato__container">
+          <label class="nombre-plato">{{ pro.nombre }}</label>
+          <label class="precio-plato">S/{{ pro.precio }}</label>
+        </div>
+        <button class="button-plato" (click)="agregarAlCarrito(pro)">
+          <ion-icon name="cart-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </section>
+</ion-content>

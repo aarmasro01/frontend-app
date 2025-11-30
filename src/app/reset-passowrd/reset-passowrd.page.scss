@@ -1,0 +1,83 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+
+.header,
+.footer {
+  background: url("../../assets/fondo-header.png");
+  background-position: center;
+  background-size: cover;
+  height: 60px;
+}
+:root {
+  --primary: #e63946;
+  --dark: #2d3142;
+  --light: #ffffff;
+  --gray: #bfc0c0;
+  --crema: #fff8f0;
+  --naranja: #e13f12;
+}
+
+.reset-page {
+  --background: var(--crema);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  height: 100%;
+}
+
+.logo {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.texto {
+  color: var(--dark);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.form-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo ion-label {
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.campo ion-input {
+  --background: #dedede;
+  border-radius: 6px;
+  --padding-start: 12px;
+  height: 45px;
+}
+
+.boton-actualizar {
+  margin-top: 10px;
+  border-radius: 8px;
+  --background: var(--naranja);
+  color: #fff;
+}
+

@@ -1,0 +1,37 @@
+<div class="background-actualizar-zona">
+  <div class="actualizar-zona-container">
+    
+    <h2>ACTUALIZAR ZONA</h2>
+
+    <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-actualizar-zona">
+
+      <div class="form-input">
+        <label>Distrito</label>
+        <input
+          type="text"
+          [(ngModel)]="distrito"
+          name="distrito"
+          required
+          placeholder="Ej. Miraflores"
+        />
+      </div>
+
+      <div class="form-input">
+        <label>Costo envío</label>
+        <input
+          type="number"
+          [(ngModel)]="costoEnvio"
+          name="costoEnvio"
+          required
+          step="0.01"
+          placeholder="S/ 15.00"
+        />
+      </div>
+
+      <button type="submit" [disabled]="form.invalid">Actualizar</button>
+      <button type="button" (click)="cerrar()">Cancelar</button>
+
+    </form>
+
+  </div>
+</div>

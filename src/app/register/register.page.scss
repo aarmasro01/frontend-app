@@ -1,0 +1,101 @@
+:root {
+  --dark: #2d3142;
+  --light: #ffffff;
+  --crema: #fff8f0;
+  --naranja: #e13f12;
+}
+
+ion-content{
+    --background: var(--crema)
+}
+.register-container {
+  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  box-shadow: 0 8px 20px rgba(45,49,66,0.08);
+  border-radius: 10px;
+  padding: 20px;
+  padding-top: 60px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: -60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.image-container{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.image-container img {
+  width: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-width: 400px;
+}
+
+h2 {
+  color: var(--dark);
+  font-size: 0.9rem;
+  margin-top: -20px;
+}
+
+.link {
+  color: var(--naranja);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.boton-crear {
+  margin-top: 20px;
+  --background: var(--naranja);
+  --color: var(--light);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(225, 63, 18, 0.2);
+}
+
+.iniciar-sesion__container {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--dark);
+}
+
+.form-register {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo ion-label {
+  font-size: 0.9rem;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.campo ion-input {
+  --background: #fff;
+  --padding-start: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: 40px;
+}

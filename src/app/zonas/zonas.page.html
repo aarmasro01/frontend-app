@@ -1,0 +1,56 @@
+
+
+  <ion-content class="ion-padding">
+    <div class="container-imagen-principal">
+      <img src="assets/logo olla.png" alt="" class="image-principal">
+    </div>
+    <div class="buscador-zonas__container">
+      <ion-item lines="none" class="buscador-item">
+        <ion-icon name="search-outline" slot="start"></ion-icon>
+        <ion-input
+        (ionInput)="onBuscar($event)"
+        placeholder="Buscar distrito...">
+      </ion-input>
+      </ion-item>
+    </div>
+
+    <div class="agregar-zona__container">
+      <label>Zonas disponibles:</label>
+      <ion-button size="small" (click)="abrirRegistrar()" class="btn-agregar">
+        <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+        Agregar zona
+      </ion-button>
+    </div>
+
+    <div class="table-zonas__container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Distrito</th>
+            <th>Costo envío</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let z of zonasFiltradas(); trackBy: trackByZona">
+            <td class="id-zona"><label>{{ z.idZona }}</label></td>
+            <td class="distrito-zona"><label>{{ z.distrito }}</label></td>
+            <td class="costo-zona">S/{{ z.costoEnvio }}</td>
+            <td class="acciones-zonas">
+              <button class="accion-button edit-button" (click)="abrirActualizar(z)">
+                <span class="material-symbols-outlined">
+                                        edit
+                                    </span>
+              </button>
+              <button class="accion-button delete-button" (click)="eliminar(z)">
+                <span class="material-symbols-outlined">
+                                        delete
+                                    </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ion-content>

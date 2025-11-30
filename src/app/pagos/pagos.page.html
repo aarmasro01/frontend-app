@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pagos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding main-section__pagos">
+  <div class="container-imagen-principal">
+    <img src="assets/logo olla.png" alt="" class="image-principal">
+  </div>
+
+  <div class="buscador-pagos__container">
+    <div lines="none" class="input-buscador-pagos">
+      <input
+  type="text"
+  [value]="idBuscar()"
+  (input)="onBuscarId($event)"
+  placeholder="Buscar por N° de pago"
+  class="input-buscar"
+/>
+      <span class="material-symbols-outlined">
+        search
+      </span>
+    </div>
+
+    <div class="filtros-buscador-pagos">
+      <select class="select-metodos"
+        [ngModel]="metodoBuscar()"
+        (ngModelChange)="onCambiarMetodo($event)">
+    <option value="">Todos</option>
+    <option value="Yape">Yape</option>
+    <option value="Plin">Plin</option>
+</select>
+
+      <input type="date" class="date-input" (change)="onCambiarFecha($event)">
+
+      <button class="btn-filtrar" (click)="cargar()">
+        <ion-icon name="funnel-outline" slot="start"></ion-icon>
+        Filtrar
+      </button>
+    </div>
+  </div>
+
+  <div class="capturas-pagos__container">
+    <div class="captura-info__container" *ngFor="let p of pagosFiltrados(); trackBy: trackByPago">
+      <div class="captura-container">
+        <img [src]="p.comprobantePago" alt="">
+      </div>
+      <div class="info-pago__container">
+        <div class="dato-pago">
+          <label>N° Pago:</label>
+          <label>{{ p.idPago }}</label>
+        </div>
+        <div class="dato-pago">
+          <label>Método de pago:</label>
+          <label>{{ p.metodoPago }}</label>
+        </div>
+        <div class="dato-pago">
+          <label>Fecha:</label>
+          <label>{{ (p.fechaPago || '').split('T')[0] }}</label>
+        </div>
+        <div class="dato-pago">
+          <label>Monto:</label>
+          <label>{{ p.montoPago }}</label>
+        </div>
+        <button id="btnVer" class="btn-ver-imagen" (click)="abrirComprobante(p)">
+          Ver imagen
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

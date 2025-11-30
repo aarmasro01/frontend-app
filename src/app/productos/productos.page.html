@@ -1,0 +1,75 @@
+<ion-content>
+  <section class="main-section__productos">
+    <img src="assets/logo olla.png" alt="" class="image-principal">
+
+    <div class="filtros-container__productos">
+      <div class="buscador-productos__container">
+        <input type="text" [(ngModel)]="filtroTexto" placeholder="Buscar producto...">
+        <span class="material-symbols-outlined">search</span>
+      </div>
+      <div class="filtros-buscador-pagos">
+        <select [(ngModel)]="filtroEstado">
+          <option value="">Todos</option>
+          <option value="1">Disponible</option>
+          <option value="2">No disponible</option>
+        </select>
+        <select [(ngModel)]="filtroCategoria">
+          <option value="">Todos</option>
+          <option value="1">Entrada</option>
+          <option value="2">Segundo</option>
+          <option value="3">Bebida</option>
+        </select>
+        <button (click)="cargarProductos()">Refrescar</button>
+      </div>
+    </div>
+
+    <div class="agregar-menu__container">
+      <label>Menu disponible:</label>
+      <button (click)="abrirRegistrar()" *ngIf="rolUsuario === 6">Agregar al menú</button>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+            <th>Disponible</th>
+            <th *ngIf="rolUsuario === 6">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pro of productosFiltrados">
+            <td class="id-producto"><label>{{ pro.idProducto }}</label></td>
+            <td class="name-image__producto">
+              <div class="image-producto__container">
+                <img [src]="pro.imagenProducto" alt="">
+              </div>
+              <label>{{ pro.nombre }}</label>
+            </td>
+            <td class="precio__producto">{{ pro.precio | number:'1.2-2' }}</td>
+            <td class="categoria-producto"><label>{{ categoriaProducto(pro) }}</label></td>
+            <td class="disponible-producto">
+              <label class="switch">
+                <input type="checkbox" [checked]="pro.idEstadoProducto === 1">
+                <span class="slider"></span>
+              </label>
+            </td>
+            <td class="acciones-productos" *ngIf="rolUsuario === 6">
+              <div class="accion-button edit-button" (click)="abrirActualizar(pro)">
+                <span class="material-symbols-outlined">edit</span>
+              </div>
+              <div class="accion-button delete-button">
+                                    <span class="material-symbols-outlined">
+                                        delete
+                                    </span>
+                                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</ion-content>

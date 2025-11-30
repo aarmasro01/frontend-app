@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+  <section class="main-section__usuarios">
+    <img src="assets/logo olla.png" alt="" class="image-principal">
+    <div class="buscador-usuarios__container">
+                <input type="text">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </div>
+    <div class="registrar-usuario__container">
+      <label>Usuarios activos:</label>
+      <ion-button color="naranja" (click)="abrirRegistro()">
+        Registrar Usuario
+      </ion-button>
+    </div>
+
+    <div class="table-usuarios__container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Contraseña</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usuarios">
+            <td>{{ user.idUsuario }}</td>
+            <td>{{ user.nombreCompleto }}</td>
+            <td>{{ user.correo }}</td>
+            <td>{{ user.telefono }}</td>
+            <td class="contraseña-usuario-table">
+              <label for="">{{ user['contraseña']}}</label>
+            </td>
+            <td>{{ rolUsuario(user.idRolUsuario) }}</td>
+            <td class="acciones">
+              <ion-button  color="primary" (click)="editarUsuario(user)">
+                <span class="material-symbols-outlined">
+                                        edit
+                                    </span>
+              </ion-button>
+              <ion-button  color="danger" (click)="eliminarUsuario(user.idUsuario)">
+                <span class="material-symbols-outlined">
+                                        delete
+                                    </span>
+              </ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>

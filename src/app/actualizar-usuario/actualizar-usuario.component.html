@@ -1,0 +1,70 @@
+<ion-content class="background-actualizar-usuario ion-padding">
+    <div class="actualizar-container">
+      <h2>ACTUALIZAR USUARIO</h2>
+
+      <form class="form-actualizar" (ngSubmit)="actualizar()">
+        <div class="form-input">
+          <input type="hidden" [(ngModel)]="idUsuario" name="idUsuario"/>
+        </div>
+
+        <div class="form-input">
+          <label>Nombre completo</label>
+          <input 
+            placeholder="Ej. Maria Perez" 
+            [(ngModel)]="nombre" 
+            name="nombre"
+          />
+        </div>
+
+        <div class="form-input">
+          <label>Correo electrónico</label>
+          <input 
+            placeholder="correo@ejemplo.com" 
+            type="email" 
+            [(ngModel)]="correo" 
+            name="correo"
+          />
+        </div>
+
+        <div class="form-input">
+          <label>Teléfono</label>
+          <input 
+            placeholder="+51 9XXXXXXXXX" 
+            type="tel" 
+            [(ngModel)]="telefono" 
+            name="telefono"
+          />
+        </div>
+
+        <div class="form-input">
+          <label>Rol</label>
+          <select 
+            placeholder="Seleccione un rol"
+            [(ngModel)]="rol" 
+            name="rol">
+            <option [value]="1">Cliente</option>
+            <option [value]="6">Encargado</option>
+            <option [value]="7">Empleado</option>
+            <option [value]="8">Repartidor</option>
+          </select>
+        </div>
+
+        <div class="form-input">
+          <label>Contraseña</label>
+          <input 
+            placeholder="Min. 8 caracteres" 
+            type="password" 
+            [(ngModel)]="contrasena" 
+            name="contrasena"
+          />
+        </div>
+
+        <button type="submit">
+          Actualizar usuario
+        </button>
+        <button class="btn-cancelar" (click)="cerrar()">
+          Cancelar
+        </button>
+      </form>
+    </div>
+</ion-content>
