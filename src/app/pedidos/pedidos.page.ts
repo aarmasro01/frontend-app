@@ -44,7 +44,7 @@ export class PedidosPage {
   cargando = false;
   error: string | null = null;
 
-  private baseUrl = 'http://localhost:5000/api';
+  private baseUrl = 'https://backend-app-fa5c.onrender.com/api';
 
   constructor(private http: HttpClient) {
     this.init();
