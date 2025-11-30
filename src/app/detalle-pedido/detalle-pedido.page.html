@@ -170,14 +170,16 @@
 
       <h3>Asignar Repartidor:</h3>
 
-      <ion-select 
-    interface="popover" 
-    [value]="idRepartidorSeleccionado" 
-    (ionChange)="idRepartidorSeleccionado = $event.detail.value; onChangeRepartidor()">
-        <ion-select-option value="">-- Escoge Repartidor --</ion-select-option> 
-        <ion-select-option *ngFor="let r of repartidores()" [value]="r.idRepartidor"> {{ r.nombreCompleto }}
-        </ion-select-option>
-</ion-select>
+      <ion-select interface="popover" placeholder="-- Escoge Repartidor --"
+
+      [value]="idRepartidorSeleccionado" 
+      (ionChange)="idRepartidorSeleccionado = $event.detail.value; onChangeRepartidor()"> -- Escoge Repartidor --
+
+      <ion-select-option *ngFor="let r of repartidores()" [value]="r.idRepartidor"> {{ r.nombreCompleto }}
+
+        </ion-select-option>
+
+      </ion-select>
 
     </div>
 
