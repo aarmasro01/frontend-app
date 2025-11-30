@@ -126,7 +126,7 @@ export class DetallePedidoPage implements OnInit, OnDestroy {
 
 
 
-  public idRepartidorSeleccionado: number | '' = '';
+  public idRepartidorSeleccionado: number | null = null;
 
   delivery = 5;
 
@@ -359,6 +359,10 @@ export class DetallePedidoPage implements OnInit, OnDestroy {
   private async init(): Promise<void> {
 
     const fromLS = localStorage.getItem('verPedido');
+    this.idRepartidorSeleccionado = null; 
+
+    this.error.set(null);
+    this.cargando.set(true);
 
     if (fromLS) {
 
@@ -435,7 +439,7 @@ export class DetallePedidoPage implements OnInit, OnDestroy {
     } finally {
 
       this.cargando.set(false);
-      this.cdr.detectChanges();
+      
 
     }
 
@@ -640,7 +644,7 @@ export class DetallePedidoPage implements OnInit, OnDestroy {
     } else {
 
       this.existeAsignacion.set(false);
-
+      this.idRepartidorSeleccionado = null;
     }
 
   }
