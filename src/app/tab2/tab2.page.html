@@ -1,6 +1,10 @@
 <ion-content [fullscreen]="true">
   <section class="main-section__carrito">
     <div class="items-container">
+      <div class="container__cart-vacio" *ngIf="carrito.length === 0">
+        <ion-icon name="cart-outline" class="carrito"></ion-icon>
+        <label for="" class="label-carrito-vacio">Carrito en vacio</label>
+      </div>
       <div class="item__container" *ngFor="let item of carrito; let i = index">
         <div class="image-item__carrito">
           <img [src]="item.imagenProducto" [alt]="item.nombre">

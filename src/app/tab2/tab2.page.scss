@@ -155,3 +155,27 @@ ion-content {
 .sub-total__container label, .delivery__container label, .monto-total__container label{
     font-size: 0.8rem;
 }
+.container__cart-vacio{
+    // background-color: red;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.carrito{
+    transform: scale(8);
+    color: #999;
+
+}
+.label-carrito-vacio{
+    color: #999;
+    margin-top: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
