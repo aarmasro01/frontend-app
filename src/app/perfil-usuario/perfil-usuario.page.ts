@@ -31,4 +31,8 @@ export class PerfilUsuarioPage implements OnInit {
     this.router.navigate(['/tabs/historial']);
   }
 
+  cerrarSesion(){
+    this.router.navigate(['/login'])
+  }
+
 }
