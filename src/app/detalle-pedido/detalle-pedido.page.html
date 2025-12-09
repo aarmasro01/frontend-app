@@ -194,15 +194,15 @@
 
       <div class="estado__container">
 
-        <div class="estado" [class.activo]="clasePasoActivo(0)" (click)="clickPaso(0)"></div>
+        <div class="estado" [class.activo]="clasePasoActivo(0)" (click)="clickPaso(0)" *ngIf="rolUsuario === 6 || rolUsuario === 7"></div>
 
         <div class="linea-conectora"></div>
 
-        <div class="estado" [class.activo]="clasePasoActivo(1)" (click)="clickPaso(1)"></div>
+        <div class="estado" [class.activo]="clasePasoActivo(1)" (click)="clickPaso(1)" *ngIf="rolUsuario === 6 || rolUsuario === 7"></div>
 
         <div class="linea-conectora"></div>
 
-        <div class="estado" [class.activo]="clasePasoActivo(2)" (click)="clickPaso(2)"></div>
+        <div class="estado" [class.activo]="clasePasoActivo(2)" (click)="clickPaso(2)" *ngIf="rolUsuario === 6 || rolUsuario === 7"></div>
 
         <div class="linea-conectora"></div>
 

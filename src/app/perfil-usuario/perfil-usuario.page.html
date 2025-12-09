@@ -29,7 +29,7 @@
       <!-- Botones -->
       <div class="buttons-container">
         <button class="btn-foto">Cambiar foto</button>
-        <button class="btn-pedidos" (click)="irAMisPedidos()">Mi historial de pedidos</button>
+        <button class="btn-pedidos" (click)="irAMisPedidos()" *ngIf="rolUsuario === 1">Mi historial de pedidos</button>
         <button class="btn-cerrar" (click)="cerrarSesion()">Cerrar sesion</button>
       </div>
     </div>

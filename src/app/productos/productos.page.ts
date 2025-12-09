@@ -24,6 +24,8 @@ export class ProductosPage implements OnInit, OnDestroy {
   filtroEstado: '' | '1' | '2' = '';
   filtroCategoria: '' | '1' | '2' | '3' = '';
 
+  private apiBaseUrl = 'https://backend-app-fa5c.onrender.com/api/products';
+
   private subs = new Subscription();
 
   constructor(
@@ -77,5 +79,64 @@ export class ProductosPage implements OnInit, OnDestroy {
     if (p.idCategoriaMenu === 2) return 'Segundo';
     if (p.idCategoriaMenu === 3) return 'Bebida';
     return '-';
+  }
+
+  async manejarCambioEstado(producto: Producto, event: any) {
+    const nuevoEstado = event.target.checked ? 1 : 2;
+
+    try {
+      await this.actualizarEstadoProducto(producto.idProducto, nuevoEstado);
+      
+      producto.idEstadoProducto = nuevoEstado;
+
+      alert(`Estado de ${producto.nombre} actualizado a: ${nuevoEstado === 1 ? 'Disponible' : 'No disponible'}`);
+      
+    } catch (error) {
+
+      event.target.checked = !event.target.checked;
+      console.error('Error al actualizar estado:', error);
+      alert('Error al actualizar el estado del producto.'); 
+    }
+  }
+
+  async actualizarEstadoProducto(idProducto: number, idEstadoProducto: number): Promise<any> {
+    console.log(`Actualizando producto ${idProducto} a estado ${idEstadoProducto}`);
+    
+    const res = await fetch(`${this.apiBaseUrl}/${idProducto}/estado`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ "idEstadoProducto": idEstadoProducto })
+    });
+    
+    const data = await res.json();
+    
+    if (!res.ok) {
+      throw new Error(data.error || 'Fallo en la actualización de la API');
+    }
+    return data;
+  }
+
+  async eliminarProducto(id: number, nombre: string) {
+    if (!confirm(`¿Estás seguro de que deseas eliminar el producto "${nombre}"? Esta acción es irreversible.`)) {
+      return;
+    }
+
+    try {
+      // 1. Llamar al servicio
+      await this.productosService.eliminarProducto(id);
+
+      // 2. Notificación de éxito
+      alert(`Producto "${nombre}" eliminado exitosamente.`);
+
+      // 3. Recargar la lista para actualizar la vista
+      this.cargarProductos(); 
+
+      // Opcional: Si solo quieres actualizar el array sin recargar:
+      // this.productos = this.productos.filter(p => p.idProducto !== id);
+
+    } catch (error) {
+      console.error('Error al eliminar producto:', error);
+      alert('Error al intentar eliminar el producto. Consulta la consola para más detalles.');
+    }
   }
 }

@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IonicModule, AlertController } from '@ionic/angular';
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginPage {
     private router: Router, 
     private alertCtrl: AlertController, 
     private zone: NgZone, 
-    private cdr: ChangeDetectorRef 
+    private cdr: ChangeDetectorRef,
+    private authService: AuthService 
   ) {}
 
   async login() {
@@ -41,7 +43,9 @@ export class LoginPage {
         localStorage.setItem('token', data.token);
         localStorage.setItem('usuario', JSON.stringify(data.usuario));
         localStorage.setItem('carrito', JSON.stringify([]));
-        localStorage.setItem('rolUsuario', data.usuario.idRolUsuario);
+//         localStorage.setItem('rolUsuario', data.usuario.idRolUsuario);
+        const rolId = parseInt(data.usuario.idRolUsuario, 10);
+        this.authService.setRolUsuario(rolId);
 
         // Ejecuta la navegación MÁS SIMPLE y DIRECTA
         this.zone.run(() => {

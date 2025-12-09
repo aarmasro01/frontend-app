@@ -17,6 +17,7 @@ import { RegistrarZonaComponent } from '../registrar-zona/registrar-zona.compone
 import { ActualizarZonaComponent } from '../actualizar-zona/actualizar-zona.component';
 import { ComprobanteComponent } from '../comprobante/comprobante.component';
 import { Zona } from '../services/zona.services';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-tabs',
@@ -64,7 +65,8 @@ export class TabsPage implements OnInit, OnDestroy {
     private buscarService: BuscarService,
     private router: Router,
     private uiService: UiService,
-    private overlayBus: TabsOverlayBusService
+    private overlayBus: TabsOverlayBusService,
+    private authService: AuthService
   ) {
     addIcons({ triangle, ellipse, square });
 
@@ -79,8 +81,11 @@ export class TabsPage implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const rol = localStorage.getItem('rolUsuario');
-    this.rolUsuario = rol ? parseInt(rol, 10) : null;
+    this.subs.add(
+        this.authService.rolUsuario$.subscribe(rol => {
+            this.rolUsuario = rol; // Se actualiza automáticamente al hacer login/logout
+        })
+    );
     this.verificarCarrito();
 
     this.uiService.mostrarRegistro$.subscribe(valor => {

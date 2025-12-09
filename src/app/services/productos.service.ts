@@ -52,4 +52,16 @@ export class ProductosService {
     if (payload.imagenFile) fd.append('imagenProducto', payload.imagenFile);
     return this.http.put(`${this.baseUrl}/${idProducto}`, fd).toPromise();
   }
+
+  async eliminarProducto(id: number): Promise<void> {
+    const res = await fetch(`${this.baseUrl}/${id}`, {
+      method: 'DELETE',
+    });
+  
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({})); 
+      throw new Error(errorData.error || 'Fallo en el servidor al eliminar el producto.');
+    }
+  }
+
 }
